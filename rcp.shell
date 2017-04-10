@@ -1,3 +1,2 @@
 # remote compile (on courant systems)
-
 gcc -g -Wall -fopenmp -o test test.c
