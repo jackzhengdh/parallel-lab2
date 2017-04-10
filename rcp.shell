@@ -1,0 +1,3 @@
+# remote compile (on courant systems)
+module load gcc-6.2.0
+gcc -g -Wall -fopenmp -o test test.c
