@@ -4,6 +4,7 @@
 #include <time.h>
 #include <omp.h>
 
+// serial version of SoE algorithm
 
 int main(int argc, char* argv[]) {
 
