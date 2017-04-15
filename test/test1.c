@@ -31,7 +31,8 @@ int main(int argc, char* argv[]) {
 	}
 
 	for (i = 2; i < N; i++) {
-		primes[nPrime++] = i;	
+		if (isPrime[i])
+			primes[nPrime++] = i;	
 	}
 	
 	
