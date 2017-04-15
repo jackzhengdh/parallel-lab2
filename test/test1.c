@@ -20,13 +20,16 @@ int main(int argc, char* argv[]) {
 	int nPrime = 0;
 	int i;
 
+	double tstart = 0.0, tend = 0.0, ttaken;
+
+	tstart = omp_get_wtime();
+
 	#pragma omp parallel for num_threads(thread_count) schedule(dynamic)
 	for (i = 2; i < N; i++) {
 		if (isPrime[i]) {
 			int j;
 			for (j = i + i; j < N; j += i)
 				isPrime[j] = 0;
-
 		}
 	}
 
@@ -37,8 +40,10 @@ int main(int argc, char* argv[]) {
 			cnt++;
 		}
 	}
-	
-	printf("%d\n", cnt);
+	ttaken = omp_get_wtime() - tstart;
+
+	printf("Pi(%d) = %d\n", N, cnt);
+	printf("Time taken = %f\n", ttaken);
 	
 	// printf("%d\n", primes[0]);
 	// i = 0;
