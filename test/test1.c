@@ -16,13 +16,11 @@ int main(int argc, char* argv[]) {
 	int nPrime = 0;
 	int i;
 	for (i = 2; i < N; i++) {
-		// printf("i = %d\n", i);
 		if (isPrime[i]) {
 			int j;
 			for (j = i + i; j < N; j += i)
 				isPrime[j] = 0;
 			primes[nPrime++] = i;
-			// printf("prime = %d\n", primes[nPrime - 1]);
 		}
 	}
 
