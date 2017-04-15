@@ -30,19 +30,23 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
+	int cnt = 0;
 	for (i = 2; i < N; i++) {
-		if (isPrime[i])
-			primes[nPrime++] = i;	
+		if (isPrime[i]) {
+			primes[nPrime++] = i;
+			cnt++;
+		}
 	}
 	
+	printf("%d\n", cnt);
 	
-	printf("%d\n", primes[0]);
-	i = 0;
-	while(1) {
-		if (!primes[i])
-			break;
-		printf("%d ", primes[i++]);
-	}
-	printf("\n");
+	// printf("%d\n", primes[0]);
+	// i = 0;
+	// while(1) {
+	// 	if (!primes[i])
+	// 		break;
+	// 	printf("%d ", primes[i++]);
+	// }
+	// printf("\n");
 	return 0;
 }
