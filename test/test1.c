@@ -14,10 +14,12 @@ int main(int argc, char* argv[]) {
 	memset(primes, 0, N*sizeof(int));
 
 	int nPrime = 0;
-	for (int i = 2; i < N; i++) {
+	int i;
+	for (i = 2; i < N; i++) {
 		// printf("i = %d\n", i);
 		if (isPrime[i]) {
-			for (int j = i + i; j < N; j += i)
+			int j;
+			for (j = i + i; j < N; j += i)
 				isPrime[j] = 0;
 			primes[nPrime++] = i;
 			// printf("prime = %d\n", primes[nPrime - 1]);
@@ -25,7 +27,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	printf("%d\n", primes[0]);
-	int i = 0;
+	i = 0;
 	while(1) {
 		if (!primes[i])
 			break;
