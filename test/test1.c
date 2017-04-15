@@ -26,10 +26,15 @@ int main(int argc, char* argv[]) {
 			int j;
 			for (j = i + i; j < N; j += i)
 				isPrime[j] = 0;
-			primes[nPrime++] = i;
+
 		}
 	}
 
+	for (i = 2; i < N; i++) {
+		primes[nPrime++] = i;	
+	}
+	
+	
 	printf("%d\n", primes[0]);
 	i = 0;
 	while(1) {
