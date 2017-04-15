@@ -16,6 +16,8 @@ int main(int argc, char* argv[]) {
 
 	int nPrime = 0;
 	int i;
+
+	#pragma omp parallel for schedule(dynamic)
 	for (i = 2; i < N; i++) {
 		if (isPrime[i]) {
 			int j;
