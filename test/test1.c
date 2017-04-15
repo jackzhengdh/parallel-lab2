@@ -8,7 +8,10 @@
 
 int main(int argc, char* argv[]) {
 
+	int thread_count;
+
 	int N = atoi(argv[1]);
+	thread_count = atoi(argv[2]);
 	int *isPrime = malloc(N*sizeof(int));
 	int *primes = malloc(N*sizeof(int));
 	memset(isPrime, 1, N*sizeof(int));
@@ -17,7 +20,7 @@ int main(int argc, char* argv[]) {
 	int nPrime = 0;
 	int i;
 
-	#pragma omp parallel for schedule(dynamic)
+	#pragma omp parallel for num_threads(thread_count) schedule(dynamic)
 	for (i = 2; i < N; i++) {
 		if (isPrime[i]) {
 			int j;
