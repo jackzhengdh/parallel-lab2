@@ -34,5 +34,5 @@ int main(int argc, char* argv[]) {
 		printf("%d ", primes[i++]);
 	}
 	printf("\n");
-
+	return 0;
 }
