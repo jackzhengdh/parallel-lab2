@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <math.h>
 
 #define f(x) 2 * x + 10
 
@@ -15,6 +16,7 @@ int main(int argc, char* argv[]) {
 	thread_count = strtol(argv[1], NULL, 10);
 	a = 0; 
 	b = 100;
+	n = 100;
 
 	#pragma omp parallel num_threads (thread_count)
 	Trap(a, b, n, &global_result);
@@ -29,7 +31,7 @@ void Trap(double a, double b, int n, double* global_result_p) {
 	double local_a, local_b;
 	int i, local_n;
 	int my_rank = omp_get_thread_num();
-	int thread_count = omp_num_threads();
+	int thread_count = omp_get_num_threads();
 
 	dx = (b - a) / n;
 	local_n = n / thread_count;
