@@ -49,6 +49,8 @@ int main(int argc, char* argv[]) {
 	char filename[10];
 	sprintf(filename, "%d.txt", N);
 
+	printf("File creation done\n");
+
 	fp = fopen(filename, "w+");
 	
 	i = 1;
@@ -63,5 +65,6 @@ int main(int argc, char* argv[]) {
 	
 	fclose(fp);
 
+	printf("What's going on here??\n");
 	return 0;
 }
