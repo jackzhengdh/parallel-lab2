@@ -55,11 +55,11 @@ int main(int argc, char* argv[]) {
 	
 	i = 1;
 	int pre = primes[0];
-	fprintf("%d %d %d\n", i, pre, 0);
+	fprintf(fp, "%d %d %d\n", i, pre, 0);
 	while(1) {
 		if (!primes[i])
 			break;
-		fprintf("%d %d %d\n", i + 1, primes[i], primes[i] - pre);
+		fprintf(fp, "%d %d %d\n", i + 1, primes[i], primes[i] - pre);
 		pre = primes[i++];
 	}
 	
