@@ -24,11 +24,10 @@ int main(int argc, char* argv[]) {
 	double tstart = 0.0, ttaken;
 	tstart = omp_get_wtime();
 
-	// #pragma omp parallel for num_threads(thread_count)
+	#pragma omp parallel for num_threads(thread_count)
 	for (i = 2; i < N; i++) {
 		if (isPrime[i]) {
 			int j;
-			#pragma omp parallel for num_threads(thread_count)
 			for (j = i + i; j < N; j += i)
 				isPrime[j] = 0;
 		}

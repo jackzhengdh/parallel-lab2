@@ -74,3 +74,54 @@ Compile also issues warning:
 =============== Next Parallel Usage ===============
 ===================================================
 
+Code:
+
+	double tstart = 0.0, ttaken;
+	tstart = omp_get_wtime();
+
+	// #pragma omp parallel for num_threads(thread_count)
+	for (i = 2; i < N; i++) {
+		if (isPrime[i]) {
+			int j;
+			#pragma omp parallel for num_threads(thread_count)
+			for (j = i + i; j < N; j += i)
+				isPrime[j] = 0;
+		}
+	}
+
+	int cnt = 0;
+	for (i = 2; i < N; i++) {
+		if (isPrime[i]) {
+			primes[nPrime++] = i;
+			cnt++;
+		}
+	}
+	ttaken = omp_get_wtime() - tstart;
+
+Result: 
+
+Generates much slower result compared to first usage in this doc, even when thread_num = 1.
+
+Time taken for increasing thread_num increases rapidly (see below).
+
+dz727@crunchy1[test]$ ./a.out 1000000 1
+Pi(1000000) = 78498
+Time taken = 0.076535
+dz727@crunchy1[test]$ ./a.out 1000000 1
+Pi(1000000) = 78498
+Time taken = 0.077334
+dz727@crunchy1[test]$ ./a.out 1000000 2
+Pi(1000000) = 78498
+Time taken = 0.199423
+dz727@crunchy1[test]$ ./a.out 1000000 2
+Pi(1000000) = 78498
+Time taken = 0.187961
+dz727@crunchy1[test]$ ./a.out 1000000 4
+Pi(1000000) = 78498
+Time taken = 0.355501
+
+===================================================
+=================== Conclusion ====================
+===================================================
+
+Use the first one.
