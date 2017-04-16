@@ -39,3 +39,38 @@ t = 40: 0.03227, 0.03313, 0.03324, 0.03367
 =============== Next Parallel Usage ===============
 ===================================================
 
+Code:
+
+	double tstart = 0.0, ttaken;
+	tstart = omp_get_wtime();
+
+	#pragma omp parallel for num_threads(thread_count)
+	for (i = 2; i < N; i++) {
+		if (isPrime[i]) {
+			int j;
+			#pragma omp for
+			for (j = i + i; j < N; j += i)
+				isPrime[j] = 0;
+		}
+	}
+
+	int cnt = 0;
+	for (i = 2; i < N; i++) {
+		if (isPrime[i]) {
+			primes[nPrime++] = i;
+			cnt++;
+		}
+	}
+	ttaken = omp_get_wtime() - tstart;
+
+Result:
+
+This simply will not work - WRONG CODE
+
+Compile also issues warning: 
+"test1.c:31: warning: work-sharing region may not be closely nested inside of work-sharing, critical, ordered, master or explicit task region"
+
+===================================================
+=============== Next Parallel Usage ===============
+===================================================
+
