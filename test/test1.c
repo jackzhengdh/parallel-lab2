@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 	int i;
 
 	// time prime-finding algorithm
-	double tstart = 0.0, tend = 0.0;
+	double tstart = 0.0, ttaken;
 	tstart = omp_get_wtime();
 
 	#pragma omp parallel for num_threads(thread_count)
