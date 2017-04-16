@@ -46,9 +46,9 @@ int main(int argc, char* argv[]) {
 	printf("Time taken = %f\n", ttaken);
 
 	FILE* fp;
-	char* filename;
+	char filename[10];
 	sprintf(filename, "%d.txt", N);
-	
+
 	printf(filename);
 
 	// fp = fopen
