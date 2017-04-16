@@ -49,17 +49,18 @@ int main(int argc, char* argv[]) {
 	char filename[10];
 	sprintf(filename, "%d.txt", N);
 
-	printf(filename);
-
-	// fp = fopen
+	fp = fopen(filename, "w+");
 	
-	// printf("%d\n", primes[0]);
-	// i = 0;
-	// while(1) {
-	// 	if (!primes[i])
-	// 		break;
-	// 	printf("%d ", primes[i++]);
-	// }
-	// printf("\n");
+	i = 1;
+	int pre = primes[0];
+	printf("%d %d %d\n", i, pre, 0);
+	while(1) {
+		if (!primes[i])
+			break;
+		fprintf("%d %d %d\n", i + 1, primes[i], primes[i] - pre);
+		pre = primes[i++];
+	}
+	printf("\n");
+
 	return 0;
 }
