@@ -44,6 +44,12 @@ int main(int argc, char* argv[]) {
 
 	printf("Pi(%d) = %d\n", N, cnt);
 	printf("Time taken = %f\n", ttaken);
+
+	FILE* fp;
+	char* filename = "" + N + ".txt";
+	printf(filename);
+
+	// fp = fopen
 	
 	// printf("%d\n", primes[0]);
 	// i = 0;
