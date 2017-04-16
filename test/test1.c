@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
 
 	tstart = omp_get_wtime();
 
-	#pragma omp parallel for num_threads(thread_count) schedule(dynamic)
+	#pragma omp parallel for num_threads(thread_count)
 	for (i = 2; i < N; i++) {
 		if (isPrime[i]) {
 			int j;
