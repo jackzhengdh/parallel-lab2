@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
 		fprintf("%d %d %d\n", i + 1, primes[i], primes[i] - pre);
 		pre = primes[i++];
 	}
-	fprintf("\n");
+	
 	fclose(fp);
 
 	return 0;
