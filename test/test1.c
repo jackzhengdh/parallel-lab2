@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 	int nPrime = 0;
 	int i;
 
-	double tstart = 0.0, tend = 0.0, ttaken;
+	double tstart = 0.0, tend = 0.0;
 
 	tstart = omp_get_wtime();
 
@@ -48,23 +48,17 @@ int main(int argc, char* argv[]) {
 	FILE* fp;
 	char filename[10];
 	sprintf(filename, "%d.txt", N);
-
-	printf("File creation done\n");
-
 	fp = fopen(filename, "w+");
 	
 	i = 1;
 	int pre = primes[0];
-	fprintf(fp, "%d %d %d\n", i, pre, 0);
+	fprintf(fp, "%d, %d, %d\n", i, pre, 0);
 	while(1) {
 		if (!primes[i])
 			break;
-		fprintf(fp, "%d %d %d\n", i + 1, primes[i], primes[i] - pre);
+		fprintf(fp, "%d, %d, %d\n", i + 1, primes[i], primes[i] - pre);
 		pre = primes[i++];
 	}
-	
 	fclose(fp);
-
-	printf("What's going on here??\n");
 	return 0;
 }
