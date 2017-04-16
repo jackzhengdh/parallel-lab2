@@ -27,6 +27,7 @@ int main(int argc, char* argv[]) {
 	#pragma omp parallel for num_threads(thread_count)
 	for (i = 2; i < N; i++) {
 		if (isPrime[i]) {
+			#pragma opm for
 			int j;
 			for (j = i + i; j < N; j += i)
 				isPrime[j] = 0;
