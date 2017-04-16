@@ -20,8 +20,8 @@ int main(int argc, char* argv[]) {
 	int nPrime = 0;
 	int i;
 
+	// time prime-finding algorithm
 	double tstart = 0.0, tend = 0.0;
-
 	tstart = omp_get_wtime();
 
 	#pragma omp parallel for num_threads(thread_count)
