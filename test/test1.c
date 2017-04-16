@@ -53,14 +53,15 @@ int main(int argc, char* argv[]) {
 	
 	i = 1;
 	int pre = primes[0];
-	printf("%d %d %d\n", i, pre, 0);
+	fprintf("%d %d %d\n", i, pre, 0);
 	while(1) {
 		if (!primes[i])
 			break;
 		fprintf("%d %d %d\n", i + 1, primes[i], primes[i] - pre);
 		pre = primes[i++];
 	}
-	printf("\n");
+	fprintf("\n");
+	fclose(fp);
 
 	return 0;
 }
